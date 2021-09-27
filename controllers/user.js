@@ -52,6 +52,10 @@ const usuariosPost = async (req, res) => {
 const usuariosDelete = async (req, res) => {
   //Obtenemos el ID
   const { id } = req.params;
+  const uid = req.uid;
+
+  //Obtenemos el usuario autenticado
+  const usuarioAutenticado = req.usuario;
 
   //Cambiamos el estado del usuario
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
